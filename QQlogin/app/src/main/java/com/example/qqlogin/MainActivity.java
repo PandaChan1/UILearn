@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG="MainActivity";
 
     /**
-     *
+     *Android的存储路径是按照Linux的方式，“/”表示根目录
      * @param savedInstanceState
      */
 
@@ -47,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void handlerLoginEvent(View view) {
         //第三步，拿到界面上的内容，账号和密码
-        String userText=((EditText)view).getText().toString();
-        String PasswordText=((EditText)view).getText().toString();
+        String userText=mAccount.getText().toString();
+        String PasswordText=mPassword.getText().toString();
         //把账号和密码保存起来
         saveaccountInfo(userText,PasswordText);
     }
 
     private void saveaccountInfo(String userText, String passwordText) {
         Log.d(TAG,"保存用户信息...");
-        File file=new File("saveinfo.text");
+        File file=new File("/data/data/com.example.qqlogin/saveinfo.text");
         try {
             if (!file.exists()){
             file.createNewFile();
