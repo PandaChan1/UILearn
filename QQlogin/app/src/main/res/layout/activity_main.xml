@@ -16,15 +16,18 @@
             android:textSize="80sp"
             android:drawableLeft="@mipmap/ic_launcher" />
         <EditText
+            android:id="@+id/et_account"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="QQ号码/手机号/邮箱"
             android:layout_marginTop="30dp"/>
         <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="密码"/>
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="登录"
