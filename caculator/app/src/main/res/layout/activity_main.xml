@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
         <TextView
+            android:onClick="oneOnclick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="C"
@@ -14,7 +15,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textAllCaps="false"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -22,7 +23,7 @@
             android:textSize="30sp"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -30,12 +31,13 @@
             android:textSize="30sp"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
+            android:onClick="onOrangeclick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="/"
-            android:background="@drawable/shape_rectangle_orange"
+            android:background="@drawable/selector_orange_bg"
             android:textSize="30sp"
             android:layout_weight="1"
             android:gravity="center"/>
@@ -50,7 +52,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -58,7 +60,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -66,14 +68,14 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="X"
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle_orange"
+            android:background="@drawable/selector_orange_bg"
             android:layout_weight="1"
             android:textAllCaps="false"/>
     </LinearLayout>
@@ -87,7 +89,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -95,7 +97,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -103,14 +105,14 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="-"
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle_orange"
+            android:background="@drawable/selector_orange_bg"
             android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
@@ -123,7 +125,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -131,7 +133,7 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -139,14 +141,14 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="+"
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle_orange"
+            android:background="@drawable/selector_orange_bg"
             android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
@@ -160,7 +162,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="40dp"
             android:layout_weight="2"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -168,14 +170,14 @@
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/shape_rectangle"/>
+            android:background="@drawable/select_white_bg"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="="
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/shape_rectangle_orange"
+            android:background="@drawable/selector_orange_bg"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
