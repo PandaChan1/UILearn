@@ -2,12 +2,15 @@ package com.example.qqlogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,13 +52,43 @@ public class MainActivity extends AppCompatActivity {
         //第三步，拿到界面上的内容，账号和密码
         String userText=mAccount.getText().toString();
         String PasswordText=mPassword.getText().toString();
+
+        //账号密码判空并提示
+
+        if (userText.length()==0) {
+            //账号为空，弹出Toast提示
+            Toast.makeText(this,"账号不可以为空",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(PasswordText)) {
+            //密码不能为空
+            Toast.makeText(this,"密码不可以为空",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         //把账号和密码保存起来
         saveaccountInfo(userText,PasswordText);
     }
 
     private void saveaccountInfo(String userText, String passwordText) {
         Log.d(TAG,"保存用户信息...");
-        File file=new File("/data/data/com.example.qqlogin/saveinfo.text");
+        //怎么获取文件的保存路径？/data/data/com.example.qqlogin/files
+        //结果：files fir==/data/user/0/com.example.qqlogin/files
+        //getFilesDir()方法拿到的路径是/data/data/包名/files
+        File filesdir=this.getFilesDir();
+        Log.d(TAG,"files dir=="+ filesdir.toString());
+        //获取缓存文件的路径
+        File cachedir=this.getCacheDir();
+        Log.d(TAG,"cache dir==" + cachedir);
+        /**
+         *cache dir==/data/user/0/com.example.qqlogin/cache
+         *上面的路径是一个缓存路径，用于保存缓存文件，该目录下的文件，系统会根据存储情况进行清理
+         * 假设不够用了，就会清理
+         * files dir==/data/user/0/com.example.qqlogin/files
+         * 下面这个是用于保存文件的路径，可以通过代码删除，也可以通过设置里的应用列表里的选项清理
+         */
+        File file=new File(filesdir,"saveinfo.text");
         try {
             if (!file.exists()){
             file.createNewFile();
