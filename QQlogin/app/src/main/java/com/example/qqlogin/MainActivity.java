@@ -12,9 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +41,27 @@ public class MainActivity extends AppCompatActivity {
         initListener();
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            FileInputStream fileInputStream=this.openFileInput("saveinfo.text");
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(fileInputStream));
+            String info=bufferedReader.readLine();
+            //对拿到的数据进行拆分
+            String[] splits=info.split("\\*\\*\\*"); //正则表达式转译
+            String account=splits[0];
+            String password=splits[1];
+            //回显
+            mPassword.setText(password);
+            mAccount.setText(account);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void initListener() {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void handlerLoginEvent(View view) {
         //第三步，拿到界面上的内容，账号和密码
@@ -65,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"密码不可以为空",Toast.LENGTH_SHORT).show();
             return;
         }
+
+
 
 
         //把账号和密码保存起来
@@ -96,14 +124,17 @@ public class MainActivity extends AppCompatActivity {
 
             FileOutputStream fos=new FileOutputStream(file);
             //以特定形式来存储
-            //账号*-*密码
-            fos.write((userText+"*-*"+passwordText).getBytes());
-
+            //账号***密码
+            fos.write((userText+"***"+passwordText).getBytes());
+            Toast.makeText(this,"数据存储成功",Toast.LENGTH_SHORT).show();
             fos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
 
     /**
      * 找到控件的方法
