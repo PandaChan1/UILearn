@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          */
         switch (v.getId()){
             case R.id.btn_writedatatoSDCard:
-                File filepath=new File("/storage/sdcard");
+                File filepath=new File("/storage/sdcard"); //文件路径错误，storage下无sdcard文件，待修改
                 File file=new File(filepath,"info.txt");
                 try {
                     FileOutputStream fos=new FileOutputStream(file);
