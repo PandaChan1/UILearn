@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
          * 一般来说数据是从网络中获取的，这里只做演示
          */
         initData();
+        //设置默认样式为ListView效果
+        showList(true,false);
     }
 
     private void initData() {
@@ -47,16 +49,6 @@ public class MainActivity extends AppCompatActivity {
             data.title="我是第 "+i+" 个条目";
             //添加到集合里面
             mData.add(data);
-
-            /**
-             * RecyclerView需要设置布局样式，即布局管理器
-             */
-            LinearLayoutManager manager=new LinearLayoutManager(this);
-            mList.setLayoutManager(manager);
-            //创建适配器
-            ListViewAdapter adapter=new ListViewAdapter(mData);
-            //设置到RecyclerView里面
-            mList.setAdapter(adapter);
 
         }
 
@@ -76,15 +68,19 @@ public class MainActivity extends AppCompatActivity {
             //ListView效果
             case R.id.list_view_horizontal_reverse:
                 Log.d(TAG,"点击了ListView的水平反向");
+                showList(false,true);
                 break;
             case R.id.list_view_horizontal_stander:
                 Log.d(TAG,"点击了ListView的水平标准");
+                showList(false,false);
                 break;
             case R.id.list_view_vertical_reverse:
                 Log.d(TAG,"点击了ListView的垂直反向");
+                showList(true,true);
                 break;
             case R.id.list_view_vertical_stander:
                 Log.d(TAG,"点击了ListView的垂直标准");
+                showList(true,false);
                 break;
 
                 //GridView效果
@@ -109,5 +105,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showList(boolean isVertical,boolean isReverse) {
+        /**
+         * RecyclerView需要设置布局样式，即布局管理器
+         */
+        LinearLayoutManager manager=new LinearLayoutManager(this);
+        /**
+         * 通过设置布局管理器来实现水平垂直效果
+         */
+        //设置垂直还是水平
+        manager.setOrientation(isVertical? LinearLayoutManager.VERTICAL: LinearLayoutManager.HORIZONTAL);
+        //设置正向还是反向
+        manager.setReverseLayout(isReverse);
+        mList.setLayoutManager(manager);
+        //创建适配器
+        ListViewAdapter adapter=new ListViewAdapter(mData);
+        //设置到RecyclerView里面
+        mList.setAdapter(adapter);
+
     }
 }
