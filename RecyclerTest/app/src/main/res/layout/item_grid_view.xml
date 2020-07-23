@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:background="#fff"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true">
-
+        app:cardUseCompatPadding="true"
+        android:background="#fff">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/pic_1"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/pic_1" />
+                android:layout_margin="10dp"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/icon"
                 android:text="我是标题"
-                android:textSize="30sp" />
-
-
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/icon"
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-
 
 </RelativeLayout>
