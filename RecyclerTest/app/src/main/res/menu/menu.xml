@@ -68,4 +68,7 @@
         </menu>
 
     </item>
+    <item android:title="多条目类型"
+        android:id="@+id/multi_type">
+    </item>
 </menu>

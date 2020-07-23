@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -127,6 +128,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.stagger_view_vertical_stander:
                 showStagger(true,false);
+                break;
+
+                //多种条目类型
+            case R.id.multi_type:
+                //跳到一个新的Activity
+                Intent intent=new Intent(this,MultiActivity.class);
+                startActivity(intent);
                 break;
         }
 
