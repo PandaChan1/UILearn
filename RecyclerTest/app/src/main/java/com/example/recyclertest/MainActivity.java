@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.recyclertest.adapter.GridViewAdapter;
 import com.example.recyclertest.adapter.ListViewAdapter;
+import com.example.recyclertest.adapter.RecyclerViewBaseAdapter;
+import com.example.recyclertest.adapter.StaggerAdapter;
 import com.example.recyclertest.beans.ItemBean;
 import com.example.recyclertest.utils.Datas;
 
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private RecyclerView mList;
     private List<ItemBean> mData;
+    private RecyclerViewBaseAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
         initData();
         //设置默认样式为ListView效果
         showList(true, false);
+
+    }
+
+    private void initListener() {
+        mAdapter.setOnItemClickLinstener(new RecyclerViewBaseAdapter.OnItemClickLinstener() {
+            @Override
+            public void  onItemClick(int position) {
+                //这里处理点击事件
+                Toast.makeText(MainActivity.this, "你点击的是第 "+position+"个条目", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initData() {
@@ -101,16 +117,39 @@ public class MainActivity extends AppCompatActivity {
 
             //StaggerViwe效果
             case R.id.stagger_view_horizontal_reverse:
+                showStagger(false,true);
                 break;
             case R.id.stagger_view_horizontal_stander:
+                showStagger(false,false);
                 break;
             case R.id.stagger_view_vertical_reverse:
+                showStagger(true,true);
                 break;
             case R.id.stagger_view_vertical_stander:
+                showStagger(true,false);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * 这个方法实现瀑布流效果
+     */
+    private void showStagger(boolean isVertical,boolean isReverse) {
+        //创建布局管理器
+        StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(2,isVertical?StaggeredGridLayoutManager.VERTICAL:StaggeredGridLayoutManager.HORIZONTAL);
+        //设置正向还是反向
+        layoutManager.setReverseLayout(isReverse);
+        mList.setLayoutManager(layoutManager);
+        //创建适配器
+        mAdapter = new StaggerAdapter(mData);
+        //设置到RecyclerView适配器
+        mList.setAdapter(mAdapter);
+
+        //初始化监听事件
+        initListener();
+
     }
 
     /**
@@ -125,9 +164,12 @@ public class MainActivity extends AppCompatActivity {
         layoutManager.setReverseLayout(isReverse);
         mList.setLayoutManager(layoutManager);
         //创建适配器
-        GridViewAdapter adapter=new GridViewAdapter(mData);
+        mAdapter=new GridViewAdapter(mData);
         //设置到RecyclerView适配器
-        mList.setAdapter(adapter);
+        mList.setAdapter(mAdapter);
+
+        //初始化监听事件
+        initListener();
     }
 
     private void showList(boolean isVertical, boolean isReverse) {
@@ -140,9 +182,12 @@ public class MainActivity extends AppCompatActivity {
         manager.setReverseLayout(isReverse);
         mList.setLayoutManager(manager);
         //创建适配器
-        ListViewAdapter adapter = new ListViewAdapter(mData);
+        mAdapter = new ListViewAdapter(mData);
         //设置到RecyclerView里面
-        mList.setAdapter(adapter);
+        mList.setAdapter(mAdapter);
+
+        //初始化监听事件
+        initListener();
 
     }
 }
