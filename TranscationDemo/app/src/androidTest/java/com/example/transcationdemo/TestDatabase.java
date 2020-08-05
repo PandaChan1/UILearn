@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.SyncStateContract;
+import android.util.Log;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -19,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 public class TestDatabase {
 
     private Context mAppContext;
+    private static  final String TAG="TestDatabase";
 
     @Before
     public void useAppContext() {
@@ -42,8 +44,29 @@ public class TestDatabase {
         SQLiteDatabase db = helper.getReadableDatabase();
 
 
-        db.execSQL("insert into account values(1,'company',1000000)");
-        db.execSQL("insert into account values(2,'myself',0)");
+        //普通方式写入3000条数据
+
+        //获取当前时间
+        long start=System.currentTimeMillis();
+
+//        db.beginTransaction();
+        for (int i=0;i<3000;i++){
+            db.execSQL("insert into account values(1,'company',1000000)");
+            db.execSQL("insert into account values(2,'myself',0)");
+
+
+        }
+//        db.endTransaction();
+
+
+        //日志打印出录入3000条数据所用的时间
+        Log.d(TAG,"usetime==  "+(System.currentTimeMillis()-start));
+
+        //  事务耗时752ms  正常写入耗时29s  事务的高效性
+
+
+        /*db.execSQL("insert into account values(1,'company',1000000)");
+        db.execSQL("insert into account values(2,'myself',0)");*/
 
         db.close();
 
