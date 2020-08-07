@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ManifestDemo</string>
+    <string name="second_activity_name">第二个</string>
+</resources>
