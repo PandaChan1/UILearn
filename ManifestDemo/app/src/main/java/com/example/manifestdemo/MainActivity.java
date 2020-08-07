@@ -12,6 +12,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+/**
+ *
+ * 显式意图，用于应用内组件跳转
+ *
+ * 隐式意图，用于应用间的跳转,第三方应用的跳转
+ *
+ *
+ * 通过短信发送一个网址，点击以后转到了浏览器----隐式意图
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -57,10 +67,17 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //有密码和帐号以后，要将数据传递到另一个界面
-        Intent intent=new Intent(this,SecondActivity.class);
+
+
+
+        /**
+         * 显式意图跳转到另外一个Activity
+         * 显式意图就是指定跳转的类命
+         */
+      /*  Intent intent=new Intent(this,SecondActivity.class);
         //传递数据1
-       /* intent.putExtra("account",accountText);
-        intent.putExtra("password",passText);*/
+       *//* intent.putExtra("account",accountText);
+        intent.putExtra("password",passText);*//*
         //传递数据2
         Bundle bundle=new Bundle();
         bundle.putString("account",accountText);
@@ -69,6 +86,21 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG,"account:"+accountText);
         Log.d(TAG,"password:"+passText);
+        startActivity(intent);
+        */
+
+/**
+ *隐式意图就是不指定特定类名，而是声明要执行的常规操作
+ * 例如：微信接到一个位置分享，那么点击就会调用地图软件来打开地图
+ */
+
+//使用隐式意图来跳转到另一个Activity
+        Intent intent=new Intent();
+        intent.setAction("com.example.LOGIN_INFO");
+//        intent.addCategory("android.intent.category.DEFAULT");
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.putExtra("account",accountText);
+        intent.putExtra("password",passText);
         startActivity(intent);
     }
 

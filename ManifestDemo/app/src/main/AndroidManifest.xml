@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity"
+        <activity android:name=".skip2Browser"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,14 @@
         </activity>
 
         <activity android:name=".SecondActivity"/>
+        <activity android:name=".ThirdActivity">
+            <intent-filter>
+                <action android:name="com.example.LOGIN_INFO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+<!--        <activity android:name=".skip2Browser"/>-->
 
     </application>
 
