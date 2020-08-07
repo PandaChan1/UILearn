@@ -74,20 +74,26 @@ public class MainActivity extends AppCompatActivity {
          * 显式意图跳转到另外一个Activity
          * 显式意图就是指定跳转的类命
          */
-      /*  Intent intent=new Intent(this,SecondActivity.class);
+        //Intent intent=new Intent(this,SecondActivity.class);
+        Intent intent=new Intent();
+        String packageName = this.getPackageName();
+        String targetActivityClassName = SecondActivity.class.getName();
+        intent.setClassName(packageName,targetActivityClassName);
         //传递数据1
-       *//* intent.putExtra("account",accountText);
-        intent.putExtra("password",passText);*//*
-        //传递数据2
+        intent.putExtra("account",accountText);
+        intent.putExtra("password",passText);
+     /*   //传递数据2
         Bundle bundle=new Bundle();
         bundle.putString("account",accountText);
         bundle.putString("password",passText);
         intent.putExtras(bundle);
 
         Log.d(TAG,"account:"+accountText);
-        Log.d(TAG,"password:"+passText);
+        Log.d(TAG,"password:"+passText);*/
+
+        Log.d(TAG,"packageName  "+packageName);
+        Log.d(TAG,"name  "+targetActivityClassName);
         startActivity(intent);
-        */
 
 /**
  *隐式意图就是不指定特定类名，而是声明要执行的常规操作
@@ -95,13 +101,13 @@ public class MainActivity extends AppCompatActivity {
  */
 
 //使用隐式意图来跳转到另一个Activity
-        Intent intent=new Intent();
+ /*       Intent intent=new Intent();
         intent.setAction("com.example.LOGIN_INFO");
 //        intent.addCategory("android.intent.category.DEFAULT");
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.putExtra("account",accountText);
         intent.putExtra("password",passText);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     private void initView() {
