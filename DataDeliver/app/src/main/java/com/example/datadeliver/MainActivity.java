@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void phoneCall(View view){
         Intent intent=new Intent();
 
@@ -88,6 +90,22 @@ public class MainActivity extends AppCompatActivity {
         Uri uri=Uri.parse("tel:10086");
         intent.setData(uri);
 
+
+
+        startActivity(intent);
+    }
+
+
+    public void sendMsg(View view){
+
+        Intent intent=new Intent();
+        intent.setAction("com.example.datadeliver.SEND_MSG");
+        intent.addCategory(intent.CATEGORY_DEFAULT);
+
+        intent.putExtra("targetnumKey","10086");
+
+        intent.setData(Uri.parse("msg:帮我查询一下话费！"));
+        //scheme:后面的内容....  一种约束，如msg
 
 
         startActivity(intent);
