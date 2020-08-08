@@ -47,6 +47,16 @@ public class PayActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     *setResult()，用来设置结果码
+     * <p/>
+     * 结果码的作用：用于区分结果，一般来说，一个数字代表一种结果
+     * <p/>
+     * 我们这里，使用2表示充值成功，3表示充值失败
+     * <p/>
+     * Activity中也有一个常量，用于表示成功的是-1，失败的是0
+     */
     private void handleCancel() {
 
         Intent intent=new Intent();
