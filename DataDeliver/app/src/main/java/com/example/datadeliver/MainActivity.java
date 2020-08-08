@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Manifest中设置权限<uses-permission android:name="android.permission.CALL_PHONE"/>后
         // 还需要打开应用（本应用即DataDeliver的电话权限）
+//        intent.setAction(intent.ACTION_CALL);
         intent.setAction("android.intent.action.CALL");
         intent.addCategory("android.intent.category.DEFAULT");
 
