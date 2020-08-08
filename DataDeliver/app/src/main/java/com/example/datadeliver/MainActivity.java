@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -66,6 +67,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void register(View view){
         Intent intent=new Intent(this,LoginActivity.class);
+
+        startActivity(intent);
+    }
+
+    public void phoneCall(View view){
+        Intent intent=new Intent();
+
+
+//        <action  name="android.intent.action.CALL" />
+//        <category  name="android.intent.category.DEFAULT" />
+
+
+        //Manifest中设置权限<uses-permission android:name="android.permission.CALL_PHONE"/>后
+        // 还需要打开应用（本应用即DataDeliver的电话权限）
+        intent.setAction("android.intent.action.CALL");
+        intent.addCategory("android.intent.category.DEFAULT");
+
+        Uri uri=Uri.parse("tel:10086");
+        intent.setData(uri);
+
+
 
         startActivity(intent);
     }

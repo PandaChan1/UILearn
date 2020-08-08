@@ -24,4 +24,10 @@
   android:text="注册界面"
      android:onClick="register"/>
 
+ <Button
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+  android:text="打电话给10086"
+     android:onClick="phoneCall"/>
+
 </LinearLayout>
