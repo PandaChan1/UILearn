@@ -61,9 +61,21 @@ public class skip2Browser extends AppCompatActivity {
 //                <category android:name="android.intent.category.DEFAULT"/>
 //            </intent-filter>
 
-        intent.setAction("android.intent.action.SEARCH");
+
+
+
+        //报错：No Activity found to handle Intent
+        // 查看chrome.apk的Manifest文件
+        // 发现<intent-filter>中只有<action android:name="android.intent.action.SEARCH"/>
+        // 此时系统匹配会自动加上<category  name="android.intent.category.DEFAULT" />
+        // 但是文件中并没有category，就会报错：No Activity found to handle Intent
+        //而如果Intent指定了一个或多个category，这些类别必须全部出现在组建的类别列表中
+
+        //暂时换成MEDIA_SEARCH可运行，错误如上已经指出
+        intent.setAction("android.intent.action.MEDIA_SEARCH");
         intent.addCategory("android.intent.category.DEFAULT");
         intent.setPackage("com.android.chrome");
+
 
         startActivity(intent);
 
