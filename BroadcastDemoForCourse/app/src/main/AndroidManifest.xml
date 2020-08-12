@@ -26,6 +26,16 @@
                 </action>
             </intent-filter>
         </receiver>
+        <receiver android:name=".BootCompleteReceiver">
+            <intent-filter>
+<!--                应用卸载-->
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+<!--                应用安装-->
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+<!--                scheme约束-->
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
