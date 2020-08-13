@@ -4,6 +4,8 @@
     <uses-permission android:name="android.permission.BATTERY_STATS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
+    <permission android:name="com.example.broadcastdemoforcourse.ORDER_PERMISSION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.broadcastdemoforcourse.MainActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
@@ -19,7 +21,7 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <receiver android:name=".BootCompleteReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.BootCompleteReceiver">
 <!--            第二步、其实就是跟我们动态注册这个action是一样的-->
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED">
@@ -28,7 +30,7 @@
         </receiver>
 
 
-        <receiver android:name=".AppStateChangeReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.AppStateChangeReceiver">
             <intent-filter>
 
 <!--                应用安装-->
@@ -41,7 +43,7 @@
         </receiver>
 
 
-        <activity android:name=".SendBroadcastActivity">
+        <activity android:name="com.example.broadcastdemoforcourse.SendBroadcastActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
@@ -49,13 +51,13 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <receiver android:name=".MessageReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.MessageReceiver">
             <intent-filter>
                 <action android:name="com.example.broadcastdemoforcourse.SEND_MSG"/>
             </intent-filter>
         </receiver>
 
-        <activity android:name=".SendOrderBroadcastActivity">
+        <activity android:name="com.example.broadcastdemoforcourse.SendOrderBroadcastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,19 +65,19 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".HighLevelReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.HighLevelReceiver">
 <!--           priority表示等级，值是-1000~1000，默认是0-->
             <intent-filter android:priority="1000">
                 <action android:name="com.example.broadcastdemoforcourse.ORDER_BROADCAST"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".DefalutLevelReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.DefalutLevelReceiver">
             <intent-filter android:priority="0">
                 <action android:name="com.example.broadcastdemoforcourse.ORDER_BROADCAST"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".LowLevelReceiver">
+        <receiver android:name="com.example.broadcastdemoforcourse.LowLevelReceiver">
             <intent-filter android:priority="-900">
                 <action android:name="com.example.broadcastdemoforcourse.ORDER_BROADCAST"/>
             </intent-filter>
