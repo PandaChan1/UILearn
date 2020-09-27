@@ -5,172 +5,179 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_cancel"
+            android:id="@+id/cancel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="C"
-            android:textSize="30sp"
+            android:textSize="30dp"
+            android:background="@drawable/bg_selector_white"
             android:layout_weight="1"
             android:gravity="center"
-            android:textAllCaps="false"
-            android:background="@drawable/select_white_bg"/>
+            android:onClick="cancelOnClick"/>
         <TextView
-            android:id="@+id/tv_plusormanus"
+            android:id="@+id/plus_or_minus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="+/-"
-            android:textSize="30sp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/select_white_bg"/>
+            android:text="+/-"
+            android:background="@drawable/bg_selector_white"
+            android:textSize="30dp"
+            android:gravity="center"/>
         <TextView
-            android:id="@+id/tv_mod"
+            android:id="@+id/mod"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="%"
-            android:textSize="30sp"
+            android:background="@drawable/bg_selector_white"
             android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_chu"
-            android:onClick="onOrangeclick"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="/"
-            android:background="@drawable/selector_orange_bg"
             android:textSize="30sp"
-            android:layout_weight="1"
             android:gravity="center"/>
+        <TextView
+            android:id="@+id/divides"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:text="/"
+            android:onClick="onOrangeClick"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/bg_selector_orange"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_number_one"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="1"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_number_two"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="2"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_number_three"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="3"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_cheng"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="X"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:background="@drawable/selector_orange_bg"
-            android:layout_weight="1"
-            android:textAllCaps="false"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-        <TextView
-            android:id="@+id/tv_number_four"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="4"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_number_five"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="5"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_number_six"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="6"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
-        <TextView
-            android:id="@+id/tv_jian"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="-"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:background="@drawable/selector_orange_bg"
-            android:layout_weight="1"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-        <TextView
-            android:id="@+id/tv_number_seven"
+            android:id="@+id/seven"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="7"
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
+            android:background="@drawable/bg_selector_white"/>
         <TextView
-            android:id="@+id/tv_number_eight"
+            android:id="@+id/eight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="8"
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
+            android:background="@drawable/bg_selector_white"/>
         <TextView
-            android:id="@+id/tv_number_nine"
+            android:id="@+id/nine"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:textSize="30sp"
             android:text="9"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/mult"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="X"
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
+            android:onClick="onOrangeClick"
+            android:background="@drawable/bg_selector_orange"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_jia"
+            android:id="@+id/four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="4"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="5"
+            android:textSize="30sp"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/six"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="6"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/minus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:text="-"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:onClick="onOrangeClick"
+            android:background="@drawable/bg_selector_orange"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:text="2"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="3"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_white"/>
+        <TextView
+            android:id="@+id/plus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="+"
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/selector_orange_bg"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="onOrangeClick"
+            android:background="@drawable/bg_selector_orange"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_number_zero"
+            android:id="@+id/zero"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="0"
@@ -178,24 +185,25 @@
             android:gravity="center_vertical"
             android:paddingLeft="40dp"
             android:layout_weight="2"
-            android:background="@drawable/select_white_bg"/>
+            android:background="@drawable/bg_selector_white"/>
         <TextView
-            android:id="@+id/tv_dot"
+            android:id="@+id/dot"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="."
             android:textSize="30sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/select_white_bg"/>
+            android:background="@drawable/bg_selector_white"/>
         <TextView
-            android:id="@+id/tv_dengyu"
+            android:id="@+id/equals"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="="
             android:textSize="30sp"
             android:gravity="center"
-            android:background="@drawable/selector_orange_bg"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="onOrangeClick"
+            android:background="@drawable/bg_selector_orange"/>
     </LinearLayout>
 </LinearLayout>
