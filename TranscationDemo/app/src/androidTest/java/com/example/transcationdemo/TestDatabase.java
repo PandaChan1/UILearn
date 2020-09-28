@@ -1,6 +1,7 @@
 package com.example.transcationdemo;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -49,12 +50,30 @@ public class TestDatabase {
         //获取当前时间
         long start=System.currentTimeMillis();
 
+
 //        db.beginTransaction();
-        for (int i=0;i<3000;i++){
-            db.execSQL("insert into account values(1,'company',1000000)");
-            db.execSQL("insert into account values(2,'myself',0)");
 
+//        for (int i=0;i<3000;i++){
+//            db.execSQL("insert into account values(1,'company',1000000)");
+//            db.execSQL("insert into account values(2,'myself',0)");
+//
+//
+//        }
 
+        ContentValues values;
+        ContentValues value1;
+        for (int i=0;i<3000;i++) {
+            values=new ContentValues();
+            values.put("_id", 1);
+            values.put("name", "company");
+            values.put("money", 1000000);
+            db.insert("account", null, values);
+            value1=new ContentValues();
+            value1.put("_id", 2);
+            value1.put("name", "myself");
+            value1.put("money", 1);
+
+            db.insert("account", null, value1);
         }
 //        db.endTransaction();
 
